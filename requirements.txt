@@ -1,0 +1,17 @@
+fastapi==0.128.0
+uvicorn==0.40.0
+python-multipart
+llama-index==0.10.68
+llama-index-core==0.10.68
+llama-index-embeddings-langchain==0.2.0
+llama-index-vector-stores-chroma==0.1.10
+langchain==0.1.20
+langchain-community==0.0.38
+GitPython==3.1.46
+python-dotenv==1.2.1
+networkx>=3.0
+sentence-transformers==5.2.2
+groq==1.0.0
+tiktoken==0.12.0
+numpy<2.0.0
+chromadb==0.5.23
