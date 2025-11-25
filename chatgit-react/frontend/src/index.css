@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg:           #f5f5f5;
+  --surface:      #ffffff;
+  --surface-2:    #f9fafb;
+  --border:       #e5e7eb;
+  --border-2:     #d1d5db;
+
+  --text-1:       #111827;
+  --text-2:       #4b5563;
+  --text-3:       #9ca3af;
+
+  --accent:       #6366f1;
+  --accent-dk:    #4f46e5;
+  --accent-bg:    #eef2ff;
+  --accent-border:#c7d2fe;
+
+  --green:        #10b981;
+  --red:          #ef4444;
+
+  --sidebar-bg:   #09090b;
+  --sidebar-b:    #18181b;
+  --sidebar-text: #e4e4e7;
+  --sidebar-muted:#71717a;
+  --sidebar-hover:#18181b;
+
+  --font:         'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+  --sidebar-w:    268px;
+  --radius:       6px;
+  --radius-lg:    10px;
+
+  --shadow-sm:    0 1px 2px rgba(0,0,0,0.05);
+  --shadow:       0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 16px; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: var(--font);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  color: var(--text-1);
+  font-family: var(--font);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+button { cursor: pointer; font-family: var(--font); }
+code, pre { font-family: var(--font-mono); }
+a { color: var(--accent); text-decoration: none; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+
+::selection { background: var(--accent-bg); color: var(--accent-dk); }
+
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes spin    { to { transform: rotate(360deg); } }
+@keyframes bounce  { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
