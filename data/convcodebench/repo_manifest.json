@@ -1,0 +1,87 @@
+{
+  "manifest_version": "1.0.0",
+  "description": "ConvCodeBench repository manifest — 50 open-source repositories used in evaluation",
+  "total_repos": 50,
+  "languages": ["python", "javascript", "typescript", "java", "go"],
+  "repositories": [
+
+    {"id": "flask",        "url": "https://github.com/pallets/flask",             "commit": "3.1.0",  "language": "python",     "complexity": "medium", "domain": "web_framework",   "loc": 8000,   "n_files": 30},
+    {"id": "fastapi",      "url": "https://github.com/tiangolo/fastapi",           "commit": "0.115.0","language": "python",     "complexity": "medium", "domain": "web_framework",   "loc": 12000,  "n_files": 55},
+    {"id": "django",       "url": "https://github.com/django/django",              "commit": "5.1",    "language": "python",     "complexity": "large",  "domain": "web_framework",   "loc": 250000, "n_files": 600},
+    {"id": "requests",     "url": "https://github.com/psf/requests",               "commit": "2.32.3", "language": "python",     "complexity": "small",  "domain": "library",         "loc": 5000,   "n_files": 25},
+    {"id": "click",        "url": "https://github.com/pallets/click",              "commit": "8.1.7",  "language": "python",     "complexity": "small",  "domain": "cli_tool",        "loc": 7000,   "n_files": 20},
+    {"id": "httpx",        "url": "https://github.com/encode/httpx",               "commit": "0.27.0", "language": "python",     "complexity": "medium", "domain": "library",         "loc": 11000,  "n_files": 40},
+    {"id": "pydantic",     "url": "https://github.com/pydantic/pydantic",          "commit": "2.9.0",  "language": "python",     "complexity": "medium", "domain": "library",         "loc": 25000,  "n_files": 80},
+    {"id": "sqlalchemy",   "url": "https://github.com/sqlalchemy/sqlalchemy",      "commit": "2.0.35", "language": "python",     "complexity": "large",  "domain": "library",         "loc": 180000, "n_files": 500},
+    {"id": "celery",       "url": "https://github.com/celery/celery",              "commit": "5.4.0",  "language": "python",     "complexity": "large",  "domain": "devops",          "loc": 70000,  "n_files": 200},
+    {"id": "pytest",       "url": "https://github.com/pytest-dev/pytest",          "commit": "8.3.3",  "language": "python",     "complexity": "medium", "domain": "cli_tool",        "loc": 30000,  "n_files": 100},
+
+    {"id": "langchain",    "url": "https://github.com/langchain-ai/langchain",     "commit": "0.3.0",  "language": "python",     "complexity": "large",  "domain": "ml_framework",    "loc": 120000, "n_files": 400},
+    {"id": "transformers", "url": "https://github.com/huggingface/transformers",   "commit": "4.45.0", "language": "python",     "complexity": "large",  "domain": "ml_framework",    "loc": 400000, "n_files": 1000},
+    {"id": "numpy",        "url": "https://github.com/numpy/numpy",                "commit": "2.1.1",  "language": "python",     "complexity": "large",  "domain": "library",         "loc": 200000, "n_files": 800},
+    {"id": "pandas",       "url": "https://github.com/pandas-dev/pandas",          "commit": "2.2.3",  "language": "python",     "complexity": "large",  "domain": "data_processing", "loc": 250000, "n_files": 700},
+    {"id": "scrapy",       "url": "https://github.com/scrapy/scrapy",              "commit": "2.11.2", "language": "python",     "complexity": "medium", "domain": "data_processing", "loc": 25000,  "n_files": 100},
+
+    {"id": "express",      "url": "https://github.com/expressjs/express",          "commit": "4.21.0", "language": "javascript", "complexity": "small",  "domain": "web_framework",   "loc": 4500,   "n_files": 30},
+    {"id": "react",        "url": "https://github.com/facebook/react",             "commit": "18.3.1", "language": "javascript", "complexity": "large",  "domain": "web_framework",   "loc": 250000, "n_files": 900},
+    {"id": "lodash",       "url": "https://github.com/lodash/lodash",              "commit": "4.17.21","language": "javascript", "complexity": "small",  "domain": "library",         "loc": 6000,   "n_files": 40},
+    {"id": "axios",        "url": "https://github.com/axios/axios",                "commit": "1.7.7",  "language": "javascript", "complexity": "small",  "domain": "library",         "loc": 3000,   "n_files": 20},
+    {"id": "jest",         "url": "https://github.com/jestjs/jest",                "commit": "29.7.0", "language": "javascript", "complexity": "large",  "domain": "cli_tool",        "loc": 80000,  "n_files": 300},
+
+    {"id": "typescript",   "url": "https://github.com/microsoft/TypeScript",       "commit": "5.6.3",  "language": "typescript", "complexity": "large",  "domain": "cli_tool",        "loc": 400000, "n_files": 1200},
+    {"id": "nest",         "url": "https://github.com/nestjs/nest",                "commit": "10.4.4", "language": "typescript", "complexity": "large",  "domain": "web_framework",   "loc": 60000,  "n_files": 300},
+    {"id": "prisma",       "url": "https://github.com/prisma/prisma",              "commit": "5.20.0", "language": "typescript", "complexity": "large",  "domain": "library",         "loc": 100000, "n_files": 500},
+    {"id": "vscode",       "url": "https://github.com/microsoft/vscode",           "commit": "1.94.0", "language": "typescript", "complexity": "large",  "domain": "devops",          "loc": 700000, "n_files": 3000},
+    {"id": "zod",          "url": "https://github.com/colinhacks/zod",             "commit": "3.23.8", "language": "typescript", "complexity": "small",  "domain": "library",         "loc": 4000,   "n_files": 15},
+
+    {"id": "spring-boot",  "url": "https://github.com/spring-projects/spring-boot","commit": "3.3.4",  "language": "java",       "complexity": "large",  "domain": "web_framework",   "loc": 350000, "n_files": 2000},
+    {"id": "gson",         "url": "https://github.com/google/gson",                "commit": "2.11.0", "language": "java",       "complexity": "medium", "domain": "library",         "loc": 15000,  "n_files": 70},
+    {"id": "okhttp",       "url": "https://github.com/square/okhttp",              "commit": "4.12.0", "language": "java",       "complexity": "medium", "domain": "library",         "loc": 20000,  "n_files": 90},
+    {"id": "retrofit",     "url": "https://github.com/square/retrofit",            "commit": "2.11.0", "language": "java",       "complexity": "small",  "domain": "library",         "loc": 5000,   "n_files": 30},
+    {"id": "guava",        "url": "https://github.com/google/guava",               "commit": "33.3.1", "language": "java",       "complexity": "large",  "domain": "library",         "loc": 150000, "n_files": 800},
+
+    {"id": "gin",          "url": "https://github.com/gin-gonic/gin",              "commit": "1.10.0", "language": "go",         "complexity": "medium", "domain": "web_framework",   "loc": 14000,  "n_files": 50},
+    {"id": "cobra",        "url": "https://github.com/spf13/cobra",                "commit": "1.8.1",  "language": "go",         "complexity": "small",  "domain": "cli_tool",        "loc": 4000,   "n_files": 20},
+    {"id": "gorm",         "url": "https://github.com/go-gorm/gorm",               "commit": "1.25.12","language": "go",         "complexity": "medium", "domain": "library",         "loc": 12000,  "n_files": 40},
+    {"id": "prometheus-go","url": "https://github.com/prometheus/client_golang",    "commit": "1.20.5", "language": "go",         "complexity": "medium", "domain": "devops",          "loc": 10000,  "n_files": 45},
+    {"id": "go-redis",     "url": "https://github.com/redis/go-redis",             "commit": "9.7.0",  "language": "go",         "complexity": "medium", "domain": "library",         "loc": 11000,  "n_files": 40},
+
+    {"id": "aiohttp",      "url": "https://github.com/aio-libs/aiohttp",           "commit": "3.10.8", "language": "python",     "complexity": "medium", "domain": "web_framework",   "loc": 25000,  "n_files": 80},
+    {"id": "starlette",    "url": "https://github.com/encode/starlette",           "commit": "0.41.0", "language": "python",     "complexity": "small",  "domain": "web_framework",   "loc": 8000,   "n_files": 30},
+    {"id": "typer",        "url": "https://github.com/tiangolo/typer",             "commit": "0.12.5", "language": "python",     "complexity": "small",  "domain": "cli_tool",        "loc": 4000,   "n_files": 15},
+    {"id": "rich",         "url": "https://github.com/Textualize/rich",            "commit": "13.9.2", "language": "python",     "complexity": "medium", "domain": "library",         "loc": 18000,  "n_files": 60},
+    {"id": "arrow",        "url": "https://github.com/arrow-py/arrow",             "commit": "1.3.0",  "language": "python",     "complexity": "small",  "domain": "library",         "loc": 5000,   "n_files": 20},
+
+    {"id": "mypy",         "url": "https://github.com/python/mypy",                "commit": "1.11.2", "language": "python",     "complexity": "large",  "domain": "cli_tool",        "loc": 90000,  "n_files": 300},
+    {"id": "black",        "url": "https://github.com/psf/black",                  "commit": "24.10.0","language": "python",     "complexity": "medium", "domain": "cli_tool",        "loc": 15000,  "n_files": 50},
+    {"id": "ruff",         "url": "https://github.com/astral-sh/ruff",             "commit": "0.6.9",  "language": "python",     "complexity": "medium", "domain": "cli_tool",        "loc": 30000,  "n_files": 120},
+    {"id": "poetry",       "url": "https://github.com/python-poetry/poetry",       "commit": "1.8.4",  "language": "python",     "complexity": "medium", "domain": "devops",          "loc": 20000,  "n_files": 80},
+    {"id": "ansible",      "url": "https://github.com/ansible/ansible",            "commit": "2.17.5", "language": "python",     "complexity": "large",  "domain": "devops",          "loc": 200000, "n_files": 800},
+    {"id": "airflow",      "url": "https://github.com/apache/airflow",             "commit": "2.10.2", "language": "python",     "complexity": "large",  "domain": "data_processing", "loc": 350000, "n_files": 1200},
+    {"id": "prefect",      "url": "https://github.com/PrefectHQ/prefect",          "commit": "3.0.0",  "language": "python",     "complexity": "large",  "domain": "data_processing", "loc": 80000,  "n_files": 300},
+    {"id": "dbt-core",     "url": "https://github.com/dbt-labs/dbt-core",          "commit": "1.8.7",  "language": "python",     "complexity": "large",  "domain": "data_processing", "loc": 60000,  "n_files": 250},
+    {"id": "hypothesis",   "url": "https://github.com/HypothesisWorks/hypothesis", "commit": "6.115.3","language": "python",     "complexity": "medium", "domain": "cli_tool",        "loc": 30000,  "n_files": 100},
+    {"id": "sympy",        "url": "https://github.com/sympy/sympy",                "commit": "1.13.3", "language": "python",     "complexity": "large",  "domain": "library",         "loc": 500000, "n_files": 1500},
+    {"id": "networkx",     "url": "https://github.com/networkx/networkx",          "commit": "3.4.1",  "language": "python",     "complexity": "large",  "domain": "library",         "loc": 80000,  "n_files": 300}
+  ],
+
+  "split": {
+    "train": 30,
+    "dev":   10,
+    "test":  10,
+    "note":  "Train repos used for prompt engineering, dev for hyperparameter tuning, test for final evaluation"
+  },
+
+  "statistics": {
+    "total_loc_approx":     4300000,
+    "avg_loc":              86000,
+    "small_repos":          12,
+    "medium_repos":         21,
+    "large_repos":          17,
+    "python_repos":         32,
+    "javascript_repos":     5,
+    "typescript_repos":     5,
+    "java_repos":           5,
+    "go_repos":             5
+  }
+}

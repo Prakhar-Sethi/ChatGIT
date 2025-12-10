@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ConvCodeBench",
+  "description": "Multi-turn conversational code Q&A benchmark for repository-level RAG evaluation",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["conversation_id", "repo_id", "language", "turns"],
+  "properties": {
+    "conversation_id": {
+      "type": "string",
+      "description": "Unique conversation identifier, format: {repo_id}_conv_{index}",
+      "example": "flask_conv_042"
+    },
+    "repo_id": {
+      "type": "string",
+      "description": "Repository identifier matching repo_manifest.json",
+      "example": "flask"
+    },
+    "repo_url": {
+      "type": "string",
+      "description": "GitHub URL of the repository"
+    },
+    "commit_hash": {
+      "type": "string",
+      "description": "Exact git commit hash for reproducibility"
+    },
+    "language": {
+      "type": "string",
+      "enum": ["python", "javascript", "typescript", "java", "go"],
+      "description": "Primary programming language of the repository"
+    },
+    "complexity_tier": {
+      "type": "string",
+      "enum": ["small", "medium", "large"],
+      "description": "Repo complexity: small (<5K LOC), medium (5K-50K), large (>50K)"
+    },
+    "domain": {
+      "type": "string",
+      "enum": ["web_framework", "cli_tool", "library", "data_processing", "devops", "ml_framework"],
+      "description": "Repository domain/category"
+    },
+    "turns": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 8,
+      "description": "Ordered list of conversation turns",
+      "items": {
+        "type": "object",
+        "required": ["turn_id", "query", "intent", "ground_truth_chunks", "reference_answer"],
+        "properties": {
+          "turn_id": {
+            "type": "integer",
+            "description": "0-indexed turn number within the conversation"
+          },
+          "query": {
+            "type": "string",
+            "description": "User's natural language question"
+          },
+          "intent": {
+            "type": "string",
+            "enum": ["locate", "explain", "summarize", "debug"],
+            "description": "Classified retrieval intent"
+          },
+          "requires_context": {
+            "type": "boolean",
+            "description": "True if this turn requires information from prior turns to answer correctly"
+          },
+          "coreferences": {
+            "type": "array",
+            "description": "Coreference annotations: pronouns in query and their referents",
+            "items": {
+              "type": "object",
+              "properties": {
+                "pronoun": {"type": "string"},
+                "referent": {"type": "string"},
+                "referent_turn_id": {"type": "integer"}
+              }
+            }
+          },
+          "ground_truth_chunks": {
+            "type": "array",
+            "description": "List of chunk IDs (file::function format) that correctly answer this turn",
+            "items": {"type": "string"},
+            "example": ["flask/app.py::Flask.run", "flask/app.py::Flask.__init__"]
+          },
+          "ground_truth_files": {
+            "type": "array",
+            "description": "File-level ground truth (for file-retrieval evaluation)",
+            "items": {"type": "string"}
+          },
+          "reference_answer": {
+            "type": "string",
+            "description": "Gold reference answer written by expert annotator"
+          },
+          "context_snippets": {
+            "type": "array",
+            "description": "Pre-extracted code snippets for generation evaluation",
+            "items": {"type": "string"}
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": ["easy", "medium", "hard"],
+            "description": "Annotator-assigned difficulty"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Optional annotator notes"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Conversation-level metadata",
+      "properties": {
+        "intent_sequence": {
+          "type": "array",
+          "description": "Sequence of intents across turns, e.g. ['locate', 'explain', 'debug']"
+        },
+        "has_coreference": {
+          "type": "boolean",
+          "description": "True if any turn contains a coreference"
+        },
+        "topic_shift": {
+          "type": "boolean",
+          "description": "True if the conversation shifts topics mid-way"
+        },
+        "annotator_id": {
+          "type": "string"
+        },
+        "annotation_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "verified_by": {
+          "type": "string",
+          "description": "Second annotator who verified this conversation"
+        }
+      }
+    }
+  }
+}
