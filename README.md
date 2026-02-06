@@ -1,23 +1,23 @@
 # ChatGIT
 
-**Chat with any GitHub repository using AI — powered by RAG, PageRank, and AST-aware code understanding.**
+**Chat with any GitHub repository using AI, powered by RAG, PageRank, and AST-aware code understanding.**
 
-ChatGIT is a research system that lets you ask natural language questions about any public GitHub codebase. Load a repo URL and start chatting — the system retrieves the most relevant code context, ranks it by structural importance, and generates precise, grounded answers via Llama 3.1.
+ChatGIT lets you ask natural language questions about any public GitHub codebase. Load a repo URL and start chatting. The system retrieves the most relevant code context, ranks it by structural importance, and generates precise, grounded answers via Llama 3.1.
 
 ---
 
 ## Features
 
-- **Multi-turn conversation** with co-reference resolution across turns (e.g., "What does *it* do?" after asking about a function)
-- **Intent-aware retrieval** — LOCATE, EXPLAIN, SUMMARIZE, and DEBUG queries each get a tailored retrieval strategy
-- **Git-volatility weighting** — recently changed, frequently touched files rank higher in retrieval
-- **Query-conditioned PageRank** — structural importance is combined with query relevance at inference time
-- **Bidirectional call-graph context** — callers and callees of matched functions are injected into the prompt
-- **Semantic redundancy penalty** — chunks seen in recent turns are down-ranked to promote exploration
-- **Cross-encoder reranking** — final retrieval pass with ms-marco-MiniLM-L-6-v2
-- **Multi-language AST parsing** — Python, JavaScript/TypeScript, Java, Swift, C/C++
-- **Interactive visualizations** — PageRank scores, call graphs, file structure explorer
-- **Precise code citations** — every answer includes file paths and line numbers
+- **Multi-turn conversation**: co-reference resolution across turns (e.g., "What does *it* do?" after asking about a function)
+- **Intent-aware retrieval**: LOCATE, EXPLAIN, SUMMARIZE, and DEBUG queries each get a tailored retrieval strategy
+- **Git-volatility weighting**: recently changed, frequently touched files rank higher in retrieval
+- **Query-conditioned PageRank**: structural importance is combined with query relevance at inference time
+- **Bidirectional call-graph context**: callers and callees of matched functions are injected into the prompt
+- **Semantic redundancy penalty**: chunks seen in recent turns are down-ranked to promote exploration
+- **Cross-encoder reranking**: final retrieval pass with ms-marco-MiniLM-L-6-v2
+- **Multi-language AST parsing**: Python, JavaScript/TypeScript, Java, Swift, C/C++
+- **Interactive visualizations**: PageRank scores, call graphs, file structure explorer
+- **Precise code citations**: every answer includes file paths and line numbers
 
 ---
 
@@ -28,13 +28,13 @@ User Query
     │
     ▼
 ┌──────────────────────────────────────────────────────────────────┐
-│  N3 – Session Memory: co-reference resolution + pronoun expansion│
+│  N3 - Session Memory: co-reference resolution + pronoun expansion│
 └──────────────────────────────────────────────────────────────────┘
     │
     ▼
 ┌──────────────────────────────────────────────────────────────────┐
-│  N4 – Intent Classifier: LOCATE / EXPLAIN / SUMMARIZE / DEBUG    │
-│        → sets top_k, max_per_file, call-graph toggle             │
+│  N4 - Intent Classifier: LOCATE / EXPLAIN / SUMMARIZE / DEBUG    │
+│        -> sets top_k, max_per_file, call-graph toggle            │
 └──────────────────────────────────────────────────────────────────┘
     │
     ▼
@@ -44,9 +44,9 @@ User Query
     │
     ▼
 ┌──────────────────────────────────────────────────────────────────┐
-│  N2 – Hybrid Importance: query-conditioned PageRank + embedding  │
-│  N1 – Git Volatility: frequency 50%, recency 30%, authors 20%    │
-│  N3 – Redundancy penalty: same-turn ×0.30, last-turn ×0.60      │
+│  N2 - Hybrid Importance: query-conditioned PageRank + embedding  │
+│  N1 - Git Volatility: frequency 50%, recency 30%, authors 20%    │
+│  N3 - Redundancy penalty: same-turn x0.30, last-turn x0.60      │
 └──────────────────────────────────────────────────────────────────┘
     │
     ▼
@@ -56,13 +56,13 @@ User Query
     │
     ▼
 ┌──────────────────────────────────────────────────────────────────┐
-│  N5 – Call-graph Context: bidirectional callers + callees        │
+│  N5 - Call-graph Context: bidirectional callers + callees        │
 │        injected into prompt (not retrieved)                      │
 └──────────────────────────────────────────────────────────────────┘
     │
     ▼
 ┌──────────────────────────────────────────────────────────────────┐
-│  Groq API – Llama 3.1-8B-Instant generation                      │
+│  Groq API - Llama 3.1-8B-Instant generation                      │
 └──────────────────────────────────────────────────────────────────┘
     │
     ▼
@@ -76,12 +76,12 @@ User Query
 When you submit a GitHub URL, the backend runs:
 
 1. `git clone` via GitPython
-2. **AST parsing** (`chatgit/core/ast_parser.py`) — extracts functions/classes per file
-3. **Token-aware chunking** (`chatgit/core/chunker.py`) — 512-token chunks, 64-token overlap
-4. **Embedding** (`chatgit/core/embeddings.py`) — BGE-small-en-v1.5 via HuggingFace
-5. **Vector indexing** — ChromaDB persistent store (keyed by repo path)
-6. **PageRank analysis** (`chatgit/core/graph/pagerank.py`) — file/function/import graphs via NetworkX
-7. **Git volatility analysis** (`chatgit/core/git_analyzer.py`) — 500-commit lookback
+2. **AST parsing** (`chatgit/core/ast_parser.py`): extracts functions/classes per file
+3. **Token-aware chunking** (`chatgit/core/chunker.py`): 512-token chunks, 64-token overlap
+4. **Embedding** (`chatgit/core/embeddings.py`): BGE-small-en-v1.5 via HuggingFace
+5. **Vector indexing**: ChromaDB persistent store (keyed by repo path)
+6. **PageRank analysis** (`chatgit/core/graph/pagerank.py`): file/function/import graphs via NetworkX
+7. **Git volatility analysis** (`chatgit/core/git_analyzer.py`): 500-commit lookback
 
 ### Intent Retrieval Parameters
 
@@ -135,8 +135,8 @@ source venv/bin/activate        # Windows: venv\Scripts\activate
 
 pip install -r requirements.txt
 
-# Create .env file
-echo "GROQ_API_KEY=your_key_here" > .env
+cp .env.example .env
+# then add your GROQ_API_KEY to .env
 ```
 
 ### 3. Frontend setup
@@ -148,13 +148,13 @@ npm install
 
 ### 4. Run
 
-**Terminal 1 — Backend:**
+**Terminal 1 - Backend:**
 ```bash
 # From project root, with venv active
 uvicorn api:app --reload --port 8000
 ```
 
-**Terminal 2 — Frontend:**
+**Terminal 2 - Frontend:**
 ```bash
 # From chatgit-react/frontend
 npm run dev
@@ -183,7 +183,7 @@ https://github.com/tiangolo/fastapi
 https://github.com/psf/requests
 ```
 
-Click **Load Repository**. Parsing, indexing, and graph analysis run automatically (~30–90 seconds depending on repo size).
+Click **Load Repository**. Parsing, indexing, and graph analysis run automatically (30-90 seconds depending on repo size).
 
 ### Chat
 
@@ -217,7 +217,7 @@ The Call Graph tab lets you select any function and visualize its callers and ca
 
 ```
 ChatGIT/
-├── api.py                          # ASGI entrypoint (thin shim → chatgit/api/app.py)
+├── api.py                          # ASGI entrypoint (shim -> chatgit/api/app.py)
 ├── requirements.txt
 ├── Dockerfile
 ├── .env.example
@@ -256,7 +256,7 @@ ChatGIT/
 ├── evaluation/                     # Benchmark & evaluation scripts
 │   ├── run_convcodebench.py        # Main ConvCodeBench evaluation
 │   ├── run_benchmark.py            # Full benchmark suite
-│   ├── ablation.py                 # Per-novelty ablation (N1–N5)
+│   ├── ablation.py                 # Per-novelty ablation (N1-N5)
 │   ├── llm_judge_eval.py           # LLM-as-judge quality evaluation
 │   └── ...
 │
@@ -276,19 +276,19 @@ The `evaluation/` directory contains scripts to reproduce all benchmark results.
 
 ```bash
 export CHATGIT_REPO_BASE=/path/to/bench_repos
-# The scripts expect: /path/to/bench_repos/flask_bench, requests_bench, etc.
+# expects subdirectories: flask_bench, requests_bench, fastapi_bench, etc.
 ```
 
 **Run the full suite:**
 
 ```bash
-# ConvCodeBench — multi-turn conversation evaluation (10 repos)
+# ConvCodeBench - multi-turn conversation evaluation (10 repos)
 python -m evaluation.run_convcodebench
 
 # Full benchmark (retrieval + generation + faithfulness + latency)
 python -m evaluation.run_benchmark
 
-# Ablation study — each novelty independently
+# Ablation study - each novelty independently
 python -m evaluation.ablation
 
 # LLM-as-judge quality scores
@@ -312,14 +312,14 @@ python -m evaluation.train_intent_classifier
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `GROQ_API_KEY` | — | **Required.** Groq API key |
+| `GROQ_API_KEY` | (required) | Groq API key |
 | `MODEL_NAME` | `llama-3.1-8b-instant` | Groq model ID |
 | `EMBEDDING_MODEL` | `BAAI/bge-small-en-v1.5` | HuggingFace embedding model |
 | `WORKSPACE_PATH` | `~/Documents/github_repos` | Repo clone directory |
 | `CHROMA_DIR` | `~/.chatgit_cache/chroma_db` | ChromaDB persistence path |
 | `CHATGIT_REPO_BASE` | `/tmp` | Parent dir for bench repos |
-| `CHATGIT_REPO_<NAME>` | — | Per-repo path override (FLASK, REQUESTS, FASTAPI, ...) |
-| `CHATGIT_CONVS_PATH` | — | Override path to conversations JSONL |
+| `CHATGIT_REPO_<NAME>` | (optional) | Per-repo path override (FLASK, REQUESTS, FASTAPI, ...) |
+| `CHATGIT_CONVS_PATH` | (optional) | Override path to conversations JSONL |
 
 ---
 
