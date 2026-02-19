@@ -59,6 +59,9 @@ def _split_lines_into_chunks(
     node_name: str,
 ) -> List[Document]:
     """Split a list of source lines into token-bounded, overlapping Document chunks."""
+    if not lines:
+        return []
+
     chunks = []
     current_lines: List[str] = []
     current_tokens = 0
