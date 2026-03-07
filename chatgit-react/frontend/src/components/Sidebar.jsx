@@ -30,8 +30,13 @@ const Sidebar = ({
 }) => {
   const [repoInput, setRepoInput] = useState('');
 
-  const handleLoad = () => { if (repoInput.trim()) onRepoLoad(repoInput.trim()); };
-  const handleKey  = (e) => { if (e.key === 'Enter') handleLoad(); };
+  const handleLoad = () => {
+    if (repoInput.trim()) {
+      onRepoLoad(repoInput.trim());
+      setRepoInput('');
+    }
+  };
+  const handleKey = (e) => { if (e.key === 'Enter') handleLoad(); };
 
   return (
     <div className="sidebar">
