@@ -32,9 +32,9 @@ class SessionRetrievalMemory:
     Reset by calling .reset() when a new repository is loaded.
     """
 
-    REDUNDANCY_PENALTY_SAME_TURN   = 0.30   # chunk retrieved this turn
-    REDUNDANCY_PENALTY_LAST_TURN   = 0.60   # chunk retrieved 1 turn ago
-    REDUNDANCY_PENALTY_OLDER       = 0.85   # 2+ turns ago
+    REDUNDANCY_PENALTY_SAME_TURN   = 0.25   # chunk retrieved this turn
+    REDUNDANCY_PENALTY_LAST_TURN   = 0.55   # chunk retrieved 1 turn ago
+    REDUNDANCY_PENALTY_OLDER       = 0.82   # 2+ turns ago
     SESSION_ZONE_BONUS             = 0.05   # gentle file-level coherence bonus
     DISCUSSED_FUNC_BONUS           = 1.20   # multiplier for discussed functions
     RECENCY_DECAY                  = 0.80   # per-turn decay on active-file weights
